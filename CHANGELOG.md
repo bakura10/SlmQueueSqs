@@ -1,3 +1,9 @@
+# 0.3.0
+
+- SlmQueueSqs now has a dependency with AwsModule, which is an official, super light wrapper around Amazon AWS
+client. This allows to specify config only once, so it's a lot simpler to handle if other ZF 2 modules make use
+of AWS services.
+
 # 0.2.4
 
 - Fix a bug when SQS returns no messages

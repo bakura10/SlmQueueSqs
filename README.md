@@ -3,17 +3,25 @@ SlmQueueSqs
 
 [![Build Status](https://travis-ci.org/juriansluiman/SlmQueueSqs.png?branch=master)](https://travis-ci.org/juriansluiman/SlmQueueSqs)
 
-Version 0.2.4 Created by Jurian Sluiman and Michaël Gallego
+Version 0.3.0dev Created by Jurian Sluiman and Michaël Gallego
 
 > NOTE : this is an early release of SlmQueueSqs, although it is tested, it may not work as expected. Please use
 > with caution, and don't hesitate to open issues or PRs !
 
+
+BC
+--
+
+Starting from SlmQueueSqs >0.3, it now has a new dependency with the official Amazon AWS module. Therefore, you
+now need to add the "AwsModule" to your modules list, and the Amazon AWS config is no longer handled by SlmQueueSqs,
+but through AwsModule, which make things a lot more flexible.
 
 Requirements
 ------------
 * [Zend Framework 2](https://github.com/zendframework/zf2)
 * [SlmQueue](https://github.com/juriansluiman/SlmQueue)
 * [Amazon AWS SDK > 2.1.1](https://github.com/aws/aws-sdk-php)
+* [Amazon AWS ZF 2 module](https://github.com/aws/aws-sdk-php-zf2)
 
 To-do
 -----
@@ -30,8 +38,7 @@ Feel free to help in those areas if you like this module !
 Installation
 ------------
 
-First, install SlmQueue ([instructions here](https://github.com/juriansluiman/SlmQueue/blob/master/README.md)). Then,
-add the following line into your `composer.json` file:
+1. Add the following line into your `composer.json` file:
 
 ```json
 "require": {
@@ -39,10 +46,9 @@ add the following line into your `composer.json` file:
 }
 ```
 
-Then, enable the module by adding `SlmQueueSqs` in your application.config.php file. You may also want to
-configure the module: just copy the `slm_queue_sqs.local.php.dist` (you can find this file in the config
-folder of SlmQueueSqs) into your config/autoload folder, and override what you want.
-
+2. This will install all the dependencies of this module (AWS SDK, official AWS ZF 2 module and SlmQueue).
+3. Configure each of those modules ([click here](https://github.com/aws/aws-sdk-php-zf2/blob/master/README.md) for AwsModule instructions and [here](https://github.com/juriansluiman/SlmQueue/blob/master/README.md) for SlmQueue instructions).
+4. Enable each module by adding `AwsModule`, `SlmQueue` and `SlmQueueSqs` to your application.config.php file.
 
 Documentation
 -------------
@@ -52,11 +58,9 @@ Before reading SlmQueueSqs documentation, please read [SlmQueue documentation](h
 Currently, SlmQueueSqs does not offer any real features to create queues. You'd better use the administrator console
 of Amazon AWS services to create queues.
 
-
 ### Setting the connection parameters
 
-Copy the `slm_queue_sqs.local.php.dist` file to your `config/autoload` folder, and follow the instructions.
-
+This is handled by configuring the AwsModule [see here](https://github.com/aws/aws-sdk-php-zf2/blob/master/README.md).
 
 ### Adding queues
 

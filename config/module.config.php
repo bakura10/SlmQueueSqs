@@ -3,7 +3,6 @@
 return array(
     'service_manager' => array(
         'factories' => array(
-            'SlmQueueSqs\Options\SqsOptions' => 'SlmQueueSqs\Factory\SqsOptionsFactory',
             'SlmQueueSqs\Service\SqsService' => 'SlmQueueSqs\Factory\SqsServiceFactory',
             'SlmQueueSqs\Worker\Worker'      => 'SlmQueueSqs\Factory\WorkerFactory'
         )
@@ -31,10 +30,4 @@ return array(
             'SlmQueueSqs\Controller\Worker' => 'SlmQueueSqs\Controller\WorkerController'
         )
     ),
-
-    'slm_queue' => array(
-        'sqs' => array(
-            'config_file' => ''
-        )
-    )
 );
